@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PantallaPagos.MainPage">
+
+    <StackLayout Margin="20">
+        <!-- Flecha de retorceso -->
+        <Button Text="&#8592;" Clicked="OnBackButtonClicked" />
+
+        <!-- Datos de Facturación -->
+        <Label Text="Datos de Facturación" FontSize="Title" />
+        <Entry Placeholder="Nombres" x:Name="NombresEntry" />
+        <Entry Placeholder="Correo Electrónico" x:Name="CorreoEntry" />
+        <Entry Placeholder="Número Telefónico" x:Name="TelefonoEntry" />
+        <Entry Placeholder="Cedula de Identidad" x:Name="CedulaEntry" />
+
+        <Label Text="Si eres menor de edad, puedes ingresar el nombre de un adulto responsable." />
+
+        <!-- Elige un método de Pago -->
+        <Label Text="Elige un método de Pago" FontSize="Title" />
+        <StackLayout>
+            <RadioButton x:Name="TarjetaRadio" Content="Tarjeta Crédito/Debito" />
+            <RadioButton x:Name="GiftCardRadio" Content="GiftCard" />
+        </StackLayout>
+
+        <!-- Términos de política y privacidad -->
+        <StackLayout Orientation="Horizontal">
+            <RadioButton x:Name="TerminosRadioButton" />
+            <Label Text="He revisado la orden de Compra, leído y acepto la política de manejo de datos y los términos y condiciones." />
+        </StackLayout>
+
+
+
+        <!-- Carrito de Supermercado y botón de Pagar -->
+        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
+            <Image Source="carrito_icon.png" HeightRequest="50" WidthRequest="50" />
+            <Label Text="Precio a pagar: $XX.XX" FontSize="Title" VerticalOptions="Center" />
+            <Button Text="Pagar" Clicked="OnPagarButtonClicked" HorizontalOptions="EndAndExpand" />
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
