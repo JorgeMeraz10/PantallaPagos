@@ -32,8 +32,9 @@ namespace PantallaPagos
                 !string.IsNullOrEmpty(TelefonoEntry.Text) &&
                 !string.IsNullOrEmpty(CedulaEntry.Text) &&
                 (TarjetaRadio.IsChecked || GiftCardRadio.IsChecked) &&
-                TerminosCheckbox.IsChecked)
-            {
+                 TerminosRadioButton.IsChecked) // Asegúrate de usar TerminosRadioButton
+            
+                {
                 // Asignar los valores ingresados a la instancia de Pagos
                 pago.Nombres = NombresEntry.Text;
                 pago.CorreoElectronico = CorreoEntry.Text;
