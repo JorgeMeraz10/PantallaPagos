@@ -11,11 +11,13 @@ namespace PantallaPagos
 {
     public partial class MainPage : ContentPage
     {
-        public  Pagos pago;
+        public Pagos pago;
+
         public MainPage()
         {
             InitializeComponent();
             pago = new Pagos();
+            BindingContext = pago;
         }
 
         private void OnBackButtonClicked(object sender, EventArgs e)
@@ -27,20 +29,13 @@ namespace PantallaPagos
         private void OnPagarButtonClicked(object sender, EventArgs e)
         {
             // Verificar si se han ingresado todos los datos requeridos y si se ha seleccionado un método de pago
-            if (!string.IsNullOrEmpty(NombresEntry.Text) &&
-                !string.IsNullOrEmpty(CorreoEntry.Text) &&
-                !string.IsNullOrEmpty(TelefonoEntry.Text) &&
-                !string.IsNullOrEmpty(CedulaEntry.Text) &&
+            if (!string.IsNullOrEmpty(pago.Nombres) &&
+                !string.IsNullOrEmpty(pago.CorreoElectronico) &&
+                !string.IsNullOrEmpty(pago.NumeroTelefonico) &&
+                !string.IsNullOrEmpty(pago.CedulaIdentidad) &&
                 (TarjetaRadio.IsChecked || GiftCardRadio.IsChecked) &&
-                 TerminosRadioButton.IsChecked) // Asegúrate de usar TerminosRadioButton
-            
-                {
-                // Asignar los valores ingresados a la instancia de Pagos
-                pago.Nombres = NombresEntry.Text;
-                pago.CorreoElectronico = CorreoEntry.Text;
-                pago.NumeroTelefonico = TelefonoEntry.Text;
-                pago.CedulaIdentidad = CedulaEntry.Text;
-
+                TerminosRadioButton.IsChecked)
+            {
                 // Aquí se puede realizar el proceso de pago y mostrar una confirmación o mensaje de éxito
                 // Por ejemplo, mostrar un mensaje emergente con los datos de pago
                 string metodoPago = TarjetaRadio.IsChecked ? "Tarjeta Crédito/Debito" : "GiftCard";
@@ -55,5 +50,3 @@ namespace PantallaPagos
         }
     }
 }
-
-
