@@ -1,42 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PantallaPagos.MainPage">
+           x:Class="PantallaPagos.MainPage">
 
-    <StackLayout Margin="20">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <!-- Flecha de retorno -->
+            <ColumnDefinition Width="*" />
+            <!-- Título "Pagar" -->
+        </Grid.ColumnDefinitions>
+
         <!-- Flecha de retorceso -->
-        <Button Text="&#8592;" Clicked="OnBackButtonClicked" />
+        <Button Text="&#8592;" Clicked="OnBackButtonClicked" BackgroundColor="#152567" TextColor="White" FontSize="Small" />
 
-        <!-- Datos de Facturación -->
-        <Label Text="Datos de Facturación" FontSize="Title" />
-        <Entry Placeholder="Nombres" x:Name="NombresEntry" />
-        <Entry Placeholder="Correo Electrónico" x:Name="CorreoEntry" />
-        <Entry Placeholder="Número Telefónico" x:Name="TelefonoEntry" />
-        <Entry Placeholder="Cedula de Identidad" x:Name="CedulaEntry" />
+        <!-- Título de la pantalla -->
+        <Label Text="Pagar" Grid.Column="1" FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center" TextColor="#212E5C" />
 
-        <Label Text="Si eres menor de edad, puedes ingresar el nombre de un adulto responsable." />
+        <StackLayout Grid.Row="1">
+            <!-- Datos de Facturación -->
+            <Label Text="Datos de Facturación" FontSize="Title" />
 
-        <!-- Elige un método de Pago -->
-        <Label Text="Elige un método de Pago" FontSize="Title" />
-        <StackLayout>
-            <RadioButton x:Name="TarjetaRadio" Content="Tarjeta Crédito/Debito" />
-            <RadioButton x:Name="GiftCardRadio" Content="GiftCard" />
+            <Entry Placeholder="Nombres" x:Name="NombresEntry" />
+            <Entry Placeholder="Correo Electrónico" x:Name="CorreoEntry" />
+            <Entry Placeholder="Número Telefónico" x:Name="TelefonoEntry" />
+            <Entry Placeholder="Cedula de Identidad" x:Name="CedulaEntry" />
+
+            <Label Text="Si eres menor de edad, puedes ingresar el nombre de un adulto responsable." TextColor="#212E5C" />
+
+            <!-- Elige un método de Pago -->
+            <Label Text="Elige un método de Pago" FontSize="Title" />
+
+            <StackLayout>
+                <RadioButton x:Name="TarjetaRadio" Content="Tarjeta Crédito/Debito" GroupName="MetodoPago" TextColor="#212E5C" />
+                <RadioButton x:Name="GiftCardRadio" Content="GiftCard" GroupName="MetodoPago" TextColor="#212E5C" />
+            </StackLayout>
+
+            <!-- Términos de política y privacidad -->
+            <StackLayout Orientation="Horizontal">
+                <RadioButton x:Name="TerminosRadioButton" GroupName="Terminos" TextColor="#212E5C" />
+                <Label Text="He revisado la orden de Compra, leído y acepto la política de manejo de datos y los términos y condiciones." TextColor="#212E5C" />
+            </StackLayout>
+
+            <!-- Carrito de Supermercado y botón de Pagar -->
+            <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand">
+                <Image Source="carrito_icon.png" HeightRequest="50" WidthRequest="50" />
+                <Label Text="$XX.XX" FontSize="Title" VerticalOptions="Center" TextColor="#212E5C" />
+                <Button Text="Pagar" Clicked="OnPagarButtonClicked" BackgroundColor="#152567" TextColor="White" />
+            </StackLayout>
         </StackLayout>
-
-        <!-- Términos de política y privacidad -->
-        <StackLayout Orientation="Horizontal">
-            <RadioButton x:Name="TerminosRadioButton" />
-            <Label Text="He revisado la orden de Compra, leído y acepto la política de manejo de datos y los términos y condiciones." />
-        </StackLayout>
-
-
-
-        <!-- Carrito de Supermercado y botón de Pagar -->
-        <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-            <Image Source="carrito_icon.png" HeightRequest="50" WidthRequest="50" />
-            <Label Text="Precio a pagar: $XX.XX" FontSize="Title" VerticalOptions="Center" />
-            <Button Text="Pagar" Clicked="OnPagarButtonClicked" HorizontalOptions="EndAndExpand" />
-        </StackLayout>
-    </StackLayout>
+    </Grid>
 
 </ContentPage>
