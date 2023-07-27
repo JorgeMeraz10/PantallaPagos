@@ -6,6 +6,7 @@ namespace PantallaPagos.Models
 {
     public  class Pagos
     {
+            public int Id { get; set; }
             public string Nombres { get; set; }
             public string CorreoElectronico { get; set; }
             public string NumeroTelefonico { get; set; }
