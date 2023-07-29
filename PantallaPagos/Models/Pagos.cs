@@ -8,15 +8,10 @@ namespace PantallaPagos.Models
 {
     public class Pagos : INotifyPropertyChanged
     {
-        //public string ID { get; set; }
-        // public string Nombres { get; set; }
-        // public string CorreoElectronico { get; set; }
-        //  public string NumeroTelefonico { get; set; }
-        // public string CedulaIdentidad { get; set; }
-
-        //Se cambia el codigo  a este formato, para poder actualizar las propiedades de MainPage.xaml mas rapido 
-        //Si hay un cambio en MainPage.xaml.cs
-
+       // public string Nombres { get; set; }
+       // public string CorreoElectronico { get; set; }
+       // public string NumeroTelefonico { get; set; }
+      //  public string CedulaIdentidad { get; set; }
 
         // Propiedad para el identificador del pago (ID)
         private int id;
@@ -26,7 +21,7 @@ namespace PantallaPagos.Models
             set => SetProperty(ref id, value); // Se utiliza SetProperty para asignar y notificar el cambio
         }
 
-        // Propiedad para los nombres del pago
+        // Propiedad para los nombres del pagador
         private string nombres;
         public string Nombres
         {
@@ -34,7 +29,7 @@ namespace PantallaPagos.Models
             set => SetProperty(ref nombres, value); // Se utiliza SetProperty para asignar y notificar el cambio
         }
 
-        // Propiedad para el correo electrónico del pago
+        // Propiedad para el correo electrónico del pagador
         private string correoElectronico;
         public string CorreoElectronico
         {
@@ -42,7 +37,7 @@ namespace PantallaPagos.Models
             set => SetProperty(ref correoElectronico, value); // Se utiliza SetProperty para asignar y notificar el cambio
         }
 
-        // Propiedad para el número telefónico del pago
+        // Propiedad para el número telefónico del pagador
         private string numeroTelefonico;
         public string NumeroTelefonico
         {
@@ -50,7 +45,7 @@ namespace PantallaPagos.Models
             set => SetProperty(ref numeroTelefonico, value); // Se utiliza SetProperty para asignar y notificar el cambio
         }
 
-        // Propiedad para la cédula de identidad del pago
+        // Propiedad para la cédula de identidad del pagador
         private string cedulaIdentidad;
         public string CedulaIdentidad
         {
